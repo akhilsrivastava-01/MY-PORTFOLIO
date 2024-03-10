@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Slide Down a Navigation Bar on Scroll
+		using HTML CSS and JavaScript
+	</title>
+	
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1">
+	
+	<style>
+		article {
+			position: fixed;
+			margin-left: 10px;
+		}
+		#navlist {
+			background-color: #0074D9;
+			position: fixed;
+			left: 0vw;
+            width:100vw;
+			top: -30vh;
+			width: auto;
+			display: block;
+			transition: top 0.3s;
+        }
+		#navlist a {
+			float: left;
+			display: block;
+			color: #f2f2f2;
+			text-align: center;
+			padding: 12px;
+			text-decoration: none;
+			font-size: 15px;
+		}
+		
+		/* hover effect of navlist anchor element */
+		#navlist a:hover {
+			background-color: #7f7973;
+			color: black;
+		}
+	</style>
+</head>
+
+<body>
+	
+	<!-- logo with tag -->
+	<article>
+		<h1 style="color:rgb(53, 206, 208);">
+			Navigation bar 
+		</h1>
+		
+		
+		
+		
+        <p>
+			This a website containing a navigation bar which moves down on scrolling
+		</p>
+
+	</article>
+	
+	<!-- Navbar items -->
+	<div id="navlist">
+		<a href="#">Home</a>
+		<a href="#">About Us</a>
+		<a href="#">Our Products</a>
+		<a href="#">Careers</a>
+		<a href="#">Contact Us</a>
+	</div>
+
+	<!-- for creating scroll -->
+	<div class="scrollable"
+		style="padding:15px 15px 4500px;">
+	</div>
+
+	<script>
+	
+		// When the user scrolls down then
+		// slide down the navbar
+		window.onscroll = function() {
+			scroll()
+		};
+
+		function scroll() {
+			if (document.body.scrollTop > 20 || 
+					document.documentElement.scrollTop > 20)
+			{
+				document.getElementById("navlist").style.top
+							= "0";
+			}
+			else {
+				document.getElementById("navlist").style.top
+							= "-30vw";
+			}
+		}
+	</script>
+</body>
+
+</html>

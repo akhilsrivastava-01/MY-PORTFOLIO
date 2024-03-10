@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRADE CALCULATOR</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .marks{
+            margin: 0.5vw;;
+        }
+        .result{
+            display: none;
+        }
+        .ans {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+.ans:hover {
+  background-color: #0056b3;
+}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h4>Subject&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Marks</h4>
+        <div class="input">
+            
+            
+                <label for="english">English</label>
+                <input class="marks" type="text" id="english" placeholder="Enter marks"><br>
+                <label for="commerce">Commerce</label>
+                <input class="marks" type="text" id="commerce" placeholder="Enter marks"><br>
+                <label for="math">Math</label>
+                <input class="marks" type="text" id="math" placeholder="Enter marks"><br>
+                <label for="economics">Economics</label>
+                <input class="marks" type="text" id="economics" placeholder="Enter marks"><br>
+            
+            
+            <button type="button" class="ans" onclick="calc()">Calculate</button>
+
+            
+                <label for="per" class="result" id="per2">Percentage</label>
+                <input class="result" type="text" id="per"><br>
+                <label class="result" for="grade" id="grade2">Grade:</label>
+                <input class="result" type="text" id="grade"><br>
+                <label class="result" for="rem" id="rem2">Remark:</label>
+                <input class="result" type="text" id="rem"><br>
+
+            
+        </div>
+    </div>
+    <script>
+        function calc()
+        {
+
+            let a=parseInt(document.getElementById("english").value);
+            let b=parseInt(document.getElementById("commerce").value);
+            let c=parseInt(document.getElementById("math").value);
+            let d=parseInt(document.getElementById("economics").value);
+            if(isNaN(a)||isNaN(b)||isNaN(c)||isNaN(d)){
+                alert("Enter correct details");
+                return;
+            }
+            let s=a+b+c+d;
+            let per=s/4;
+            let g;
+            let r;
+            if(per>=80){
+                g="A";
+                r="Keep it up."
+            }
+            else if(per>=60)
+            {
+                g="B";
+                r="Satisfactory";
+            }
+            else{
+                g="C";
+                r="Fail."
+            }
+            document.getElementById("per2").style.display="block";
+            document.getElementById("per").value=per+"%";
+            document.getElementById("per").style.display="block";
+            document.getElementById("grade2").style.display="block";
+            document.getElementById("grade").value=g;
+            document.getElementById("grade").style.display="block";
+            document.getElementById("rem2").style.display="block";
+            document.getElementById("rem").value=r;
+            document.getElementById("rem").style.display="block";
+
+        }
+    </script>
+</body>
+</html>

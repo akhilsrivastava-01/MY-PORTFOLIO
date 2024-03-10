@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.input-group button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-group button:hover {
+  background-color: #0056b3;
+}
+
+.result {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>BMI Calculator</h2>
+    <form id="bmiForm">
+      <div class="input-group">
+        <label for="height">Height (cm):</label>
+        <input type="text" id="height" name="height" required>
+      </div>
+      <div class="input-group">
+        <label for="weight">Weight (kg):</label>
+        <input type="text" id="weight" name="weight" required>
+      </div>
+      <div class="input-group">
+        <button type="button" onclick="calc()" style="width:40vw;margin-left:25%;max-width: 40%;">Calculate BMI</button>
+      </div>
+      <div class="input-group">
+        <label for="result">BMI:</label>
+        <input type="text" id="result">
+      </div>
+    </form>
+    <div id="result" class="result"></div>
+  </div>
+  <script>
+    
+    function calc()
+    {
+        let x= parseInt(document.getElementById("height").value);
+        x=x/100;
+        let y= parseInt(document.getElementById("weight").value);
+        let ans=y/(x*x);
+        document.getElementById("result").value=ans;
+    }
+  </script>
+</body>
+</html>
