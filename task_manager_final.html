@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK TRACKER</title>
+    <style>
+        .tasks{
+            display: none;
+        }
+        ._body {
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .output{
+            margin-top: 1vw;
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        .ans {
+            width: 20vw;
+            max-width: 25%;
+            padding:2%;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .ans:hover{
+            background-color: #0755a9;
+        }
+        .tasks2{
+            width:30vw;
+            max-width: 200px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="_body">
+        <h3 style="text-align: center;">TO DO LIST</h3>
+        <div class="input">
+            <form>
+                <label for="inp" >Enter task:&nbsp;</label>
+                <input type="text" name="inp" id="inp" style="width: 30vw;">
+                <hr class="no">
+                <button type="button" onclick="addtask()" class="ans">Add task</button>
+                &nbsp;&nbsp;
+                <button type="button" onclick="remtask()"" class="ans">Remove </button>
+            </form>
+        </div>
+        <div class="output">
+            <form >
+                <input type="text" class="tasks" id="_1">
+                <input type="text" class="tasks" id="_2">
+                <input type="text" class="tasks" id="_3">
+                <input type="text" class="tasks" id="_4">
+                <input type="text" class="tasks" id="_5">
+                <input type="text" class="tasks" id="_6">
+
+            </form>
+            <!-- <h4 style="text-align: center;">COMPLETED</h4>
+            <form>
+                <input type="text" id="_1_" class="tasks2">
+                <input type="text" id="_1_" class="tasks2">
+                <input type="text" id="_1_" class="tasks2">
+                <input type="text" id="_1_" class="tasks2">
+                <input type="text" id="_1_" class="tasks2">
+                <input type="text" id="_1_" class="tasks2">
+            </form> -->
+        </div>
+        
+    </div>
+    <script>
+        let x=0;
+        let y=0;
+        let q=0;
+        function addtask(){
+            let tsk = document.getElementById("inp").value;
+            // if(x==1)
+            // {
+            //     document.getElementById("_1").value=tsk;
+            //     document.getElementById("_1").style.display="block";
+            //     x++;
+            // }
+            // else if(x==2){
+            //     document.getElementById("_2").value=tsk;
+            //     document.getElementById("_2").style.display="block";
+            //     x++;
+            // }
+            // else{}
+
+            let list=document.querySelectorAll(".tasks");
+                list[x].value=(x+1)+". "+tsk;
+                list[x].style.display="block";
+                
+                x=x+1;
+                q++;
+        }
+        function remtask(){
+            let list=document.querySelectorAll(".tasks");
+            let len=list.length;
+            list[x-1].style.display="none";
+            //list[x-2].style.display="none";
+            x=x-1;q--;
+        }
+        function comp(z)
+        {
+            let list=document.querySelectorAll(".tasks");
+            list[2*z].style.display="none";
+            list[2*z+1].style.display="none";
+            
+        }
+    </script>
+</body>
+</html>
